@@ -91,8 +91,8 @@ The intended layout is:
   scripts/
 ```
 
-The first public version may not contain every directory yet. The layout is the
-target shape for a full workspace.
+The repository includes these markdown folders as empty starters. `.gitkeep`
+files keep the folders visible until you add real notes.
 
 | Path | Purpose |
 | ---- | ------- |
@@ -368,23 +368,21 @@ For example, use `example-solver`, `sample-literature-review`, or
 7. Add skills and agents only after the directory responsibilities are clear.
 8. Keep real runtime config private; publish only examples under `.codex/`.
 
-## What This Repository Will Contain
+## What This Repository Contains
 
-The public template is being built in layers.
-
-Planned contents:
+The public template is built in layers. The current repository includes a
+minimal working starter set:
 
 - A complete public README.
 - A generic `AGENTS.md`.
-- A markdown workspace guide.
-- Minimal directory placeholders.
-- Example daily and task records.
-- Example library and project records using fictional material.
-- Generic workflow skills.
-- Optional agent definitions.
-- Project-level runtime config examples.
+- A markdown workspace guide and starter folders.
+- Example daily, task, library, topic, and project records using fictional
+  material.
+- Generic workflow skills under `.agents/skills/`.
+- Optional bounded agent definitions under `.codex/agents/`.
+- A project-level runtime config example.
 - A privacy and publication checklist.
-- Small maintenance scripts where they are useful.
+- A small publication-safety scanner.
 
 The template should stay readable even without any particular assistant tool.
 Project-specific runtime adapters can be replaced by users in their own

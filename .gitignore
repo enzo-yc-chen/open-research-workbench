@@ -1,0 +1,56 @@
+# Local runtime config and secrets
+.env
+.env.*
+.codex/config.toml
+*.local.*
+
+# Private or generated workspace data
+private/
+scratch/
+.tmp/
+tmp/
+cache/
+logs/
+results/
+data/
+
+# Task archive contents are private by default
+markdown/task/.archive/*
+!markdown/task/.archive/.gitkeep
+!markdown/task/.archive/README.md
+
+# Large or restricted research artifacts
+*.pdf
+*.h5
+*.hdf5
+*.bin
+*.dat
+*.npy
+*.npz
+*.csv
+*.tsv
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+
+# Logs and temporary files
+*.log
+*.out
+*.err
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Language/tool caches
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+node_modules/
+
+# OS/editor metadata
+.DS_Store
+Thumbs.db
