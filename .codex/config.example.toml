@@ -1,0 +1,18 @@
+# Example project-level assistant runtime config.
+#
+# Copy this file to your private runtime configuration location if your tool
+# supports project-scoped config. Do not commit real accounts, tokens, private
+# paths, local service endpoints, or model-provider secrets.
+
+project_name = "open-research-workbench"
+
+[workspace]
+rules_file = "AGENTS.md"
+skills_dir = ".agents/skills"
+agents_dir = ".codex/agents"
+markdown_dir = "markdown"
+
+[privacy]
+publish_real_daily_logs = false
+publish_real_project_evidence = false
+publish_private_runtime_config = false

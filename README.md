@@ -15,7 +15,7 @@ The short version:
 - Keep daily logs, task records, source materials, and project judgments in
   separate places.
 - Let user-facing workflows decide what should happen next.
-- Use smaller internal helpers only for bounded, well-scoped work.
+- Use smaller internal agents only for bounded, well-scoped work.
 - Keep publishable templates separate from private research records.
 
 This repository is not a cleaned dump of a private workspace. It is a reusable
@@ -73,7 +73,10 @@ The intended layout is:
 
   .agents/
     skills/
-    helpers/
+
+  .codex/
+    config.example.toml
+    agents/
 
   markdown/
     README.md
@@ -95,7 +98,8 @@ target shape for a full workspace.
 | ---- | ------- |
 | `AGENTS.md` | Workspace rules for AI assistants: what can be changed, how to recover state, and where durable facts belong. |
 | `.agents/skills/` | User-facing workflow instructions such as daily planning, task execution, library management, and research planning. |
-| `.agents/helpers/` | Optional bounded helper definitions used by workflows for focused jobs. Users should not need to call these directly. |
+| `.codex/config.example.toml` | Example project-level runtime configuration. Keep real local config private. |
+| `.codex/agents/` | Optional bounded agent definitions used by skills for focused jobs. Users should not need to call these directly. |
 | `markdown/README.md` | Human-readable map of the markdown workspace. |
 | `markdown/daily/` | Daily notes and a task index. |
 | `markdown/task/` | Task chains, plans, execution logs, reviews, verification notes, and archived tasks. |
@@ -106,22 +110,47 @@ target shape for a full workspace.
 | `markdown/projects/` | Project status, evidence, analysis, task handoff, result handback, and output planning. |
 | `scripts/` | Optional helper scripts for indexing, checking, generating summaries, or maintaining the workspace. |
 
-## Skills And Helpers
+## Skills And Agents
 
 The workbench assumes two layers of assistant behavior.
 
-Skills are the user-facing workflow layer. A user can ask to start the day,
-create a task, archive a paper, review a project, or summarize current work.
-The skill interprets intent, chooses the right action size, updates durable
-records, and decides whether helper work is useful.
+Skills are the user-facing workflow layer. They live under `.agents/skills/`.
+A user can ask to start the day, create a task, archive a paper, review a
+project, or summarize current work. The skill interprets intent, chooses the
+right action size, updates durable records, and decides whether agent work is
+useful.
 
-Helpers are internal workers. They are optional and should be small. A helper
-may draft a paper note, inspect a task record for missing recovery information,
-compare repository notes, or prepare a project refresh draft. Helpers should
+Agents are internal workers. In this template, project-level agent definitions
+live under `.codex/agents/`. They are optional and should be small. An agent may
+draft a paper note, inspect a task record for missing recovery information,
+compare repository notes, or prepare a project refresh draft. Agents should
 have a narrow write scope and should report back to the skill that called them.
 
-The user should not have to think in helper names. The public interface is the
+The user should not have to think in agent names. The public interface is the
 skill workflow.
+
+## The `.codex/` Folder
+
+The `.codex/` folder is an optional adapter layer for assistant tools that can
+read project-level configuration and agent definitions.
+
+For a new workspace, use it like this:
+
+- Read `.codex/config.example.toml` as a starting point for project-level
+  settings.
+- Create your own private config from the example if your assistant runtime
+  supports it.
+- Put reusable, project-safe agent definitions in `.codex/agents/`.
+- Let skills decide when an agent should run and what files it may read or
+  write.
+
+The example config is intentionally small. A real local config may contain
+accounts, private paths, local service endpoints, or model/provider choices.
+Keep those details out of any public template or shared repository.
+
+The workspace model does not depend on this folder. Readers who use a different
+assistant runtime can keep the markdown layout and skill design, then replace
+`.codex/` with their own adapter.
 
 ## Daily Workflow
 
@@ -314,7 +343,8 @@ synthetic data, or a public source.
    material intake becomes important.
 6. Add `markdown/topics/` and `markdown/projects/` when you need research
    judgment, evidence tracking, and task handoff.
-7. Add skills and helpers only after the directory responsibilities are clear.
+7. Add skills and agents only after the directory responsibilities are clear.
+8. Keep real runtime config private; publish only examples under `.codex/`.
 
 ## What This Repository Will Contain
 
@@ -329,12 +359,14 @@ Planned contents:
 - Example daily and task records.
 - Example library and project records using fictional material.
 - Generic workflow skills.
-- Optional helper definitions.
+- Optional agent definitions.
+- Project-level runtime config examples.
 - A privacy and publication checklist.
 - Small maintenance scripts where they are useful.
 
 The template should stay readable even without any particular assistant tool.
-Tool-specific adapters can be added by users in their own private workspaces.
+Project-specific runtime adapters can be replaced by users in their own
+private workspaces.
 
 ## License
 
