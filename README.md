@@ -310,26 +310,48 @@ One useful loop looks like this:
 This loop is deliberately mundane. The reliability comes from doing the small
 bookkeeping steps consistently.
 
-## Privacy And Publication Boundary
+## Sharing Your Workbench Safely
 
-Do not publish a working research workspace by accident. Use this repository as
-a template, then decide what belongs in a public copy.
+When you use this template, keep your live research workspace and any public
+copy separate.
 
-Before sharing, remove or replace:
+Your private workspace is where real work happens: daily notes, unfinished
+ideas, local paths, private data, experiments, and project evidence. A public
+copy should be a cleaned template or a deliberately prepared example. It should
+teach the workflow without exposing the work itself.
 
-- Personal names, emails, accounts, home paths, hostnames, and local machine
-  details.
-- Internal repository URLs, private remotes, tokens, and service configuration.
-- Compute infrastructure details, job logs, queues, partitions, and access
-  notes.
-- Licensed source code, restricted datasets, PDFs without redistribution
-  rights, and large generated files.
+For most users, a good sharing pattern is:
+
+1. Keep your real workspace private.
+2. Create a separate public template repository.
+3. Copy only the directory structure, generic rules, reusable skills, safe
+   agents, and synthetic examples.
+4. Replace real project names with fictional ones.
+5. Replace real results with small made-up examples or public-source examples.
+6. Review the public copy before pushing it.
+
+Usually safe to share:
+
+- Directory conventions.
+- Generic workflow rules.
+- Example task and project records built from fictional material.
+- Reusable skills and agents after removing local assumptions.
+- Small scripts that do not contain private paths or credentials.
+
+Keep private or replace:
+
+- Personal names, emails, accounts, home paths, hostnames, and machine details.
+- Private repository URLs, tokens, local services, and real runtime config.
+- Compute access notes, queue names, job logs, and infrastructure details.
+- Restricted source code, datasets, PDFs, and generated large files.
 - Unpublished project names, benchmark results, hypotheses, evidence chains,
   and research claims.
-- Any chat transcripts or session logs that may contain sensitive context.
+- Chat transcripts, session logs, or assistant memory files that may contain
+  sensitive context.
 
-When a detail is needed to explain the workflow, use a fictional project,
-synthetic data, or a public source.
+If a real detail helps explain the workflow, turn it into a fictional example.
+For example, use `example-solver`, `sample-literature-review`, or
+`toy-benchmark-study` instead of a real project.
 
 ## Quick Start
 
