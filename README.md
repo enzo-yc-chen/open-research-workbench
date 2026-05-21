@@ -129,6 +129,37 @@ have a narrow write scope and should report back to the skill that called them.
 The user should not have to think in agent names. The public interface is the
 skill workflow.
 
+### Included Skills
+
+| Skill | Purpose |
+| ----- | ------- |
+| `daily-workflow` | Start or close a workday, write daily notes, run daily scans through the library layer, and preserve recovery points. |
+| `task-workflow` | Create, plan, execute, review, verify, pause, resume, and close recoverable task chains. |
+| `library-manager` | Archive papers, repository notes, group profiles, source metadata, update scans, and material summaries. |
+| `research-workflow` | Maintain topic maps, project status, evidence, analysis, task handoff, result handback, and output planning. |
+| `cluster-workflow` | Keep remote compute work recoverable without putting private access details into the public template. |
+| `autonomous-runner` | Continue long-running task chains in bounded batches with durable checkpoints. |
+
+### Included Agents
+
+| Agent | Typical Use |
+| ----- | ----------- |
+| `literature-curator` | Draft or check one paper record. |
+| `repo-curator` | Draft or check one repository or reference-code note. |
+| `group-curator` | Draft or check one group, lab, organization, or community profile. |
+| `source-auditor` | Check material records for source identifiers, links, provenance, and uncertainty. |
+| `topic-mapper` | Map one topic, route comparison, or open-question set. |
+| `research-cartographer` | Read-only map of project evidence, task links, daily recovery points, gaps, and next task candidates. |
+| `project-steward` | Draft or apply a single-project refresh when given project-local scope. |
+| `evidence-auditor` | Check whether project judgments are supported by material records, task results, or project analysis. |
+| `handoff-planner` | Turn one project gap into a task candidate. |
+| `ledger-auditor` | Check daily, task, and project records for stale or contradictory status. |
+| `task-briefer` | Reconstruct one task chain or task for a new session. |
+| `task-plan-drafter` | Draft a bounded task or stage plan. |
+| `task-reviewer` | Review a plan, implementation, or task record for risks and missing checks. |
+| `task-worker` | Execute one bounded change in an explicit write set. |
+| `task-verifier` | Compare completed work against the plan, evidence, tests, and records. |
+
 ## The `.codex/` Folder
 
 The `.codex/` folder is an optional adapter layer for assistant tools that can
